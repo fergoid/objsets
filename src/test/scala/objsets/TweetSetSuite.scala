@@ -4,6 +4,8 @@ import org.junit.runner.RunWith
 import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 
+import scala.annotation.tailrec
+
 @RunWith(classOf[JUnitRunner])
 class TweetSetSuite extends FunSuite {
 
@@ -144,7 +146,12 @@ class TweetSetSuite extends FunSuite {
 
   test("descending: Gizmodo") {
     val s = TweetReader.tweetSets
+    println(s.head.mostRetweeted)
+    println(size(s.head))
+    println(s.head.descendingByRetweet)
+    //s.head.descendingByRetweet foreach println
     assert(s.head.descendingByRetweet.head.retweets == s.head.mostRetweeted.retweets)
   }
+
 
 }
